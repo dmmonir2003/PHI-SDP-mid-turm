@@ -13,6 +13,11 @@
 {% endif %}
 
 
-<h2>this home page</h2>
+<h2>this profile page</h2>
+
+<p>
+    <a href="{% url "update_profile" %}" class='btn btn-primary '>Profile Update</a>
+    <a href="{% url "update_pass" %}" class='btn btn-success '>Password Update</a>
+</p>
 
 {% endblock content %}
