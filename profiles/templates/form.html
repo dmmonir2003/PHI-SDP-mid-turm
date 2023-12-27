@@ -4,10 +4,10 @@
 
 {% if messages %}
     {% for message in messages %}
-    <div class="alert alert-dismissible fade show" role="alert">
+    <div style='width: 30%;margin: auto; color: white;' class="alert mt-3 alert-dismissible fade show {% if message.tags == 'error' %}bg-danger{% elif message.tags == 'success' %}bg-success{% endif %}" role="alert">
         {{ message }}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
+    </div>
     {% endfor %}
   
 {% endif %}
@@ -16,26 +16,19 @@
 
 
 
-<form class='my-5' method='post' novalidate style='width: 50%; margin:auto;'>
+<form class='my-5' method='post'  style='width: 50%; margin:auto;' novalidate>
     <h2> Please {{type}}</h2>
     {% csrf_token %}
 
-    {% if form.non_fields_errors %}
     
-    {% for er in form.non_fields_errors %}
-    
-    <p>{{er}}</p>
-    
-    {% endfor %}
-
-    {% endif %}
-
     <!--{{form| crispy}}-->
 
     {% for fm in form %}
     <div>{{fm.label_tag}}
         {{fm}}
-        {{fm.errors|striptags}}</div>
+        
+        {{fm.errors|striptags}}
+    </div>
     {% endfor %}
 
     <button type='submit' class='btn btn-primary my-3'>{{type}}</button>
