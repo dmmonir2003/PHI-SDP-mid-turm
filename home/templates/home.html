@@ -13,6 +13,14 @@
 {% endif %}
 
 
-<h2>this home page</h2>
+<h2>this home page {{cars|length}}</h2>
+
+
+
+<div class='d-flex'>
+{% for brand in car_brands %}
+<h3>{{brand}}</h3>
+{% endfor %}
+</div>
 
 {% endblock content %}
